@@ -1,3 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using MoxfieldToMCMWants;
 
-Console.WriteLine("Hello, World!");
+Settings config = new Settings();
+MoxfieldDeckGrabber deckGrabber = new MoxfieldDeckGrabber(config);
