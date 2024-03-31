@@ -11,7 +11,7 @@ public class MoxfieldDeckGrabber
     {
         _driver = WebDriver.SetChromeDriverSettings(settings);
         // Implicitly wait for web elements to load
-        _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+        _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
     }
 
     public Deck ExportDeck(string url, bool keepEditions)

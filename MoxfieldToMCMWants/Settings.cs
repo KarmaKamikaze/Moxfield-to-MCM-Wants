@@ -8,7 +8,7 @@ public class Settings
     {
         IConfiguration config = LoadAppSettings();
         // Get values from the config given their key and their target type.
-        ChromeDriverPath = config.GetRequiredSection("ChromeDriverPath").Get<string>();
+        ChromeDriverPath = config.GetRequiredSection("ChromeDriverDirectory").Get<string>();
     }
 
     public string? ChromeDriverPath { get; set; }
