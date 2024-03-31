@@ -12,6 +12,7 @@ public class Deck
     public string Name { get; set; }
     public string Url { get; set; }
     public Dictionary<Card, int> DeckList { get; set; }
+    private bool _keepEditions = false;
 
     public void ConstructDeckList(string deckList, bool keepEditions)
     {
@@ -42,6 +43,7 @@ public class Deck
 
             if (keepEditions)
             {
+                _keepEditions = true;
                 string edition = fields.Find(s => s.Contains('('))!
                     .Replace("(", "")
                     .Replace(")", "");
@@ -52,5 +54,21 @@ public class Deck
         }
 
         DeckList = deck;
+    }
+
+    public override string ToString()
+    {
+        var result = String.Empty;
+        foreach (var card in DeckList)
+        {
+            result += $"{card.Value} {card.Key.Name}";
+            if (_keepEditions)
+            {
+                result += $" ({card.Key.Set})";
+            }
+
+            result += '\n';
+        }
+        return result;
     }
 }
